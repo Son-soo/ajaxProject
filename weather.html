@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style>
+
+      *{ margin: 0; font-weight: normal; }
+      p{ margin-bottom: 10px;}
+      body{ 
+           color: #333; 
+           font-size: 100%; 
+           font-family: sans-serif;
+      }
+      #weather_info{
+         position: relative;
+           width: 100%;
+           border: 1px solid #999;
+           box-sizing: border-box;
+           padding: 10px;
+           background: #eee;
+           background: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEhUSEhIQFRUVFRAVFRUVFRUPFQ8PFRUWFhUVFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGislHx0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAABAAIDBAYFB//EADYQAAICAQIFAwIEBQMFAQAAAAABAhEDBCEFEjFBUQYTYRRxIoGhwRUyQpGxYtHwI1Ki4fEz/8QAGgEAAgMBAQAAAAAAAAAAAAAAAAECAwQFBv/EACQRAAICAgICAgMBAQAAAAAAAAABAhEDBBIhMUETIhQyUXEF/9oADAMBAAIRAxEAPwDzVINBoNHpjnAEEIwAEQQEIIkEYgCDQqAAIIqChgJDkAKGII5ACgAfE9E9DcFUYe/K+aSaSaa5Y/n1PPsSPaeA4eXFjX+iP96Me7kcYUvZdgVyDLQb2kvn7F6GFKNFqPKH2zkObZsooZNPa36FGH/Se266fKO9LHtRTnoE10JRn/ROJPpsyaJpZCtp9IoLYblbRB030Mky6ggeayCbGcrJUKx85EMpokeNkMsLGhEOTIMLEcA/6cdoVFFxGtF14RksRJMKKibHJsm9ka4ErAjeRiHUABniiQaCkGjsmEbQh1CoBAoVDkg0AAoIaDQwGiodQqAQ2g0OoVAA2gpBSCkMBUFBSHRQxHQ4LGPuLm8OvCfY9G4XxlctJqkv8HmGCTTtF+OvlFJK+tv5+5nzYfkJQycT1XS8QU90dTFqUzzfgvF9vxNJ/wCDQafi0V1f/s5mTXadGqGZezXxyolUkzPYuJRfdF3Dq0+jMzg0XKaZ1JIq5ojHqyvm1PyJRY20TrAgLGistalsGWoRKmK0WnBPoCWmIFmXks4dQRdjG/TMZkxtFtZ0RTyoXYyk4CeMmeWJHkzpIl2IrZJpFTPMfqM0Shqc68l0YkGyT3EI5zzMRdwI8jy6g0Gg0dcxjaFQ+hUIQ1IdQaCkADaCkOoVAAKFQ+hcoCGJCokoKiMLI6CkP5RyQCsYkPjEMYj1EBWKKHpCSJEgEKLaJ4aiS7kSQ5ITCy/g1s13NHwvivaTXb818GQiyVZ5FWTEpIlGbRttTxult1K/8ZTV9GZX3pUDnZStaKJvNJmkfHN/3D/Ge90ZpzG8xL8eAvkka3Fxxd2dLR8YhLZS38GA91hhna6MhLViyazSRvNXxxQ2KGX1K+zRlMurcluyB5AjqRXkHmkzUfx+T3sizcdk+5m/cA5li14fwj8kjvZOMHP1HFJM5zmNssjiig5suPiWTyIoiJ8I/wAFyZzKFQ4RMAUGghQgG0Gh1BSEKxtDqDQaGKwUGg0GgENoKQ6gpAAFEdyjkh6iAiNQHpD0h3KAhiQ9IKQ9IQASCojqJ9Lo8mV1CLk+9dl8ibryBXoKNjo/QmSSUp5FFNK0lbUvh+Ds6T0bp8fK/wAUpRadt9Xa6roZpbmKPuy6OvNmE4e0pbwbrd7bpeTqcRhiml/T3ut38LyeiR0UbTcVfmuq8Eup4bhyL8UIPtuk6XwY5bick6NC1mlVnjTxPtbIpRZ6hqOB4Mb/AARS/wAUcfifppzjzwUU128o0R3INlL15IwkmMs7y4Y8icYJN9V22+Tl6rh2TH/Mq+H1NUckX0VcWVGAArLBCHWNAACYLCxo0MFiFQhhZRoQRAMQUhDkhCBQUENAIQUJIckAAodQUgpAICQ7lHRQ5IAGqI9RHRRIoiELDh5mkTTw8r87AxKixhxyyXGO7ZFsCHHpZz3UX+S2GZMLi6kqZpuC6KcE+d/h7p+K7Mj1PD4S3vbffraKfnXKvRPg6szsUbP0XpuS3LZvt8eaOE8EOb8Mdvn/ACaPgee5FezK8dIlh6mbTFkVK2PtM58PuPjmRx2jpWXMjohlmfYjnqExnvioLDkxWGC7f8YlnQ6E49wAi+jxxblGEbl1aSTf3Zm/UvB4Sipxi3Jdt+je5rfdiVvbTlZOGSUZWKUFJUYLhHppzm3OEeTtv13OT6l4N9NO4745N8v+l/8Aaz0/V5YwTpGO49qYZI1Kq8d78m/BszlO34M2TFGMa9mIQGPzdWRnURjCIQhjEAIgGUUgpDkg0AWNSHINBoQrAkGgpDkgEBIckWeHaT3ckMd1zSSurq/g9GwegdP7UVLnc1vKSaXM/FPpH9SjNsQxUpeyyGKU/B5nHE30TfXt4Conqmk9M48GOUEua23c0n1+xBj9OaeMeWUOa+7Vv+/gz/nw/hZ+NI80UR6ielca9O4cuGbhjSypJxcVvJrpH9jO4/RWtdXjST8y6b1uuvz+RbDbxyVt0VywyTqrM1GJf0vC8+RJwxZJKTpNRbTf36Hpeh9E6SOKMMkOeW3NO3FuXemqpHd4dpIYILHBVGKSS3dL7szZP+hFfqi2Oq3+zPI9X6f1WFXPDNLyqkv/ABsj4fl5H99r8I9omzE8d9Hc83kwuMU95Qp1fdx/2Fi3VP65Ogyazj3Ds4mTXr2+Vu7/ACObl1cmqVJfB1Nb6Z1cI3yKSW1QduvNd/8AJwnt1NGKMH+rsom5LyWdLJXudrgusjGbT6Vs66PyZ5MfhzOLtdSc8XJNEIz4uzdx1kX0ZFLVGSwa5xW3V9WO/ic/Jjeo/Rp/JRrY6ks49+rMUuKz8lyPHnSTRGWpP0SjsR9mrm0kVZ61LujPaji75dnu/wBEcmesk97YQ1G/I5bC9G3x63uHPxaGOLbZicfFJxVFPUaqUurJrSt9kfyeujQa71HaddzMazUubtjJSIZm3HhjDwUSySl5IpDaHtDWXkRrEEFDAQg0AYyvQaH8olEQDaCkP5RcohDUh8UFIekIRt/RfB9PPkzXzSi/xK/5Jp7Ovsv1PQYZq2PJfTesy4+b2483xdV8m/0Otm1HnpNpWk7p/c425CXO2zoYJx40jrZpXuHTxT3ojlm2XSh+KSVmL0aCbHjV9CdZFe134Kscvkm02VXWwgLrdoEoDVIkb2IjIck9hmBhnRXllroSQifJRhvWfBZOazY4zlzbSrfleyjt13Ne533HSVpr4LcOR4pckV5ManGmebaTgWeatY5PoibTel9VkdcnKrVuTqk/jubbFUX4L09Un8/uanu5PSKFqQ9sw3G/SbwY+eGTn5f5o1Tp1ukjLyR7C5xkulfHycp8Kw0l7cWldcyTavf9yWLdaVT7I5NVN/U8ySH+1LpT7dN+qtfod/Wem5rI+X+Ru18I7Og4RycrTvapX/VfVmqe1BK0URwSbpmJ+mm481bI0ek9JqcIy575lF7eHuzQLhGC23Hr1Xb+x0dLGEIpJUvHgyZdxtfXo049ZJ/Y8+4j6ceBpymnFuvD8nA1GJxf+O567rtLjyqpRUl87nm/qDhM8OSSjGXt3cX/ADKnX7mjV2efUn2V58PHteDhSGSZYzRrr1/X8yBo3ozEbQ1kjQ1oaAjoQ+gUSAbQh1BGMiSDyj6HKJFgM5RcpPHH2Sv92djhXpbVamLlCMVFNq5vk3Xx1+CuU4xVydAouXg4KiPUTo6/g2owf/rilFVd7SildbyjaK2PC30TdJt1vUV1f2BSTVpg010ybh+RwknHraNph1NVbVtf3MThnVryjscFxTbu1y+P0/Iy7ONSVv0WYp06Nbh1Z0MGpRnoy+UWoZmtzlygbozO6sqDjypOzkLUheoIcSXI0MNRbLuCSrczGDVHTx6i49dyEoklKyxqs1PYrORUnqO4z6gkoisuRmSrMcx6iyXDlBoVl+eK1YYwJcOaLSRJkiuzI2SoaCcExvMkL3kAxj0pGocu3gsR1An5C2BCkMmSymiF0MCOMn0IpYlK1JJpkroYnQ7EZX1D6Z5v+ph60rjezS8fJjs2FxdM9Wz/AAZD1LwtyanBebS60dLV2X+sjHnwr9omTcQSiWcWCU3SVsOTSy5lFp8z7Pbc6PJGRJlOhUSSg06ewUiaYEVCJhDsYdHo55ZqEI80ndLZdFfc73BvSOfM7nGUItOntbf28Hc4D6Zngz87aajfK66prrfZm2xqkcrY3mnWM14ta1cji8J9J6fTcsknOa/rlvT+F0R38eNL5BPJsMjlOXOcpu5M2RioqkWJ4lJU0q8dUUcfA9NFyksWNOV834Vun1LkMqaFHKRUmvDG0mcbN6S0c5OXtJWmqX4Vv3pd/kzev9C5sfNLDl5qa5Yv8LlH5l0s3Uc24p6lMuhs5YeyqWCEvRhuG+m9Rkisknyt3cHFxars76dB+bFKC/FFr77G5WZNHM4jw6OXdt7EnsOT+wvhUV0Y95aCtQWNfw2UL8eTmvGyxUyt2i7DUlrFraOLzMHusHCw5Ud2eqRH9Scb32FZw4BzOv8AUE+LUnDWYmx5GJxBSNHi1ZZjrPkz+KTL2HE2VuKLFJl6eqI/qWNWikWsGjXcj0iStkUM5YjqQ/TRYnpERtEqZBkzlaWZ+S7k0sSpl078ElQnYx5mJZCKcGhJMkItxlYzNpk0V1FjZ6mtmCT9Ba9nGxaRY9VaX4XF/a+5Znp6m5dV8/0+aH5VeSLaT618PyS5l5/4jQ5t1/hVGK7M3xLhLlc4t34fdHLxaa+uy+TWavVR5HFNLbYzuqdrqv3N2DJJqmZ8kIp2ilOEU+4hNCNZTZ7FCfwO98Y5qPR2VdTmPM1Z1yw8tlHJraZTzah+Slmy2WKBByOtHirXQb/EmcrH5H1fQfFC5M6Ude/I76s5k4tdNyJ5mHFByNFh1i8lpaqPky2HOTSzEXjHzOxqpxlaM9xHTygnKtl1r5e1Isw1HyLWatcr77PbyWY04shOmjNvWJjY6pXTKOV03tXwNs6iwRo5zyM6vMgcpzFkJcWoaIPX/hJZTpRRYxFHHqr2OppYxfczTg4+S+Eky1p2dPTzSOXSXQH1NGdxsvTo0cc2xHLUUZ6WvZFPWyYliY3kRo3ra7gWtM19Q/I5ahruP4hfIaZZrD7pm48US7lzS6pye91+wPDJeRrKn4OhnkmQe610J9Plxy2/UsVDtRX4LKspqM2unUZl4Y1+Krs6cc6qqHe+qpgpteA4pmfzQUetqjk63XLdGqzQg3uupxtdwjE0+zfR+DRinG/sU5ISr6mW1OpctvBXSsm1eBwk4veu/kihKjrxqvqYHd9kQiSUk2InYUekfWV4aIcuW97/ACOJ70mTwyvqcHhR0+VkueTKWWY/NmKGfMTiiEmTvU0GGsOZLKMeYnwIcjR4dVfUiyM4uPU0TrVfIvjofIuyyUD6koyzjPdXckoEXI6jnfQh1eVqLv8A+lSGtSKes1Tm/gtx4W32VzyKiHNk5nYwSYToeDH5GjoJt0u40saLGnL7BJ0rBK2Tw0vK7n0X6l7FqY/0lXURbVXs9yOM0tjJL7Ls0R+rOm9SMlns5rzD4Z13K/hZP5C086IXq9yHV8qXyU7LseFNWVTm7OpLVIT1SaOXzC5ifwIj8jL0cqs1/D8mOMFW9rqzCRkdDBrpVS/2KtjC5rotw5FF9mry5I/Axa1ROBj4hFv8Vk8tTjMbwtdNGpZUzqS4gRy4oZ/U61PZFT6mXkujqWiuWxRp1rmyrxHiH4eu5xPq5EU8zZbDVp2yt57Q/PqpS/51KwWA2JJeCi7BQg0IkM18YIY4vyhCOEmdNojyYbKeXTBETiyDRVyYKIFpW+ghFqfRU0CemcepPh0U5dKXyIRNypWJK3Q2OGSlyvf5G6vT1vf5eBCJqT5Ig4qmU5DRCNiMzChCESEIMXQhAA/3X5GuTEIVIAWCwiAQZSsYIQwYQCEABHJiEIAuQHNhEFIkNsXKEQMASYhCGIVCoQhjFQRCESP/2Q==") no-repeat;
+           background-size: cover;
+           color: white;
+      }
+      h1{ 
+           background: #666;
+           padding: 10px;
+           font-size: 1.8em;
+           text-align: center;
+           opacity: 0.8;
+      }
+      section{
+           overflow: hidden;
+           color: #666;
+           text-shadow: 1px 1px 1px #999;
+           padding: 10px 20px;
+      }
+      section > .w_id{ 
+           text-align: left;
+           padding-left: 20px;
+      }
+      section > figure, section > .temp{
+           float: left;
+           width: 33.3%;
+      }
+      section > figure > img{ width: 80px;}
+      section > .temp{ 
+           font-size: 3.4em;
+      }
+      aside{ overflow: hidden; }
+      aside > p { 
+           font-size: 1.8em; 
+           text-align: right;
+      }
+
+   </style>
+</head>
+<body>
+
+	<div id="weather_info">
+			<h1 class="city"></h1>
+			
+			<section>
+			<p class="w_id"></p>
+			<figure class="icon">
+			</figure>
+			<p class = "temp"></p>
+			<aside>
+				<p class = "temp_min">Max</p>
+				<p class = "temp_max">Min</p>
+			</aside>
+			</section>
+	</div>
+	<script>
+		let url = "https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=655a8242518e29106e9ec708787fe14b"
+	
+		$.ajax({
+			url : url ,
+			type : 'post',
+			dataType : 'json',
+			success:function(data){		
+				let sys = data.sys;	//국가명, 일몰, 일출
+				let city = data.name;  //도시명
+				let weather = data.weather; // 날씨객체
+				let main = data.main; //온도 기압 객체
+				
+				let wmain = weather[0].main; //구름 상태
+				let w_id = weather[0].id; //날씨 상태 id 코드
+				let icon = weather[0].icon; // 날씨 아이콘 정보
+				let country = sys.country;  // 국가명
+				let temp = main.temp;  //현재온도
+				let temp_min = main.temp_min;  //최저온도
+				let temp_max = main.temp_max;  //최고온도
+				
+				let icon_url = 'http://openweathermap.org/img/w/' + icon;
+				
+				$('#weather_info > .city').html(city + "/" +country);
+				$('#weather_info .icon').html("<img src='" + icon_url + ".png'>");
+				$('#weather_info .w_id').html(wmain);
+				$('#weather_info .temp_min').html(parseInt(temp_min - 273.15) + '℃  min');
+				$('#weather_info .temp_max').html(parseInt(temp_max - 273.15) + '℃ max');
+				$('#weather_info .temp').html(parseInt(temp - 273.15) + '℃');
+				
+	     	/*  $('body').append(wmain + " , " + icon + "<br>"
+						+ '현재 온도: ' + parseInt(temp - 273.15) + "<br>" 
+						+ '최저 온도: ' + parseInt(temp_min - 273.15) + "<br>" 
+						+ '최고 온도: ' + parseInt(temp_max - 273.15) + "<br>" 
+						+ country + ' ' + city + ' ' + w_id + ' ' + "<br>"
+						);
+				let icon_url = 'http://openweathermap.org/img/w/' + icon;
+				$('body').append("<img src='" + icon_url + ".png'>");  */
+			}
+		});
+	</script>
+</body>
+</html>
